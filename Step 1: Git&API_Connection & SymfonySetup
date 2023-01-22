@@ -39,3 +39,31 @@ transip.be : not-available
 
 # Acceptance Criteria
 - [x] Check for multiple domains in terminal
+
+# Assignment domain-checker
+
+## Part II - Symfony
+Now lets setup a basic webpage in symfony which you can use to check the availibility of a single domain.
+
+Use Symfony and Twig to create a webpage with a domainchecker.
+
+## Requirements
+- Provide a webpage which can be used to check a single domain
+
+## Technical requirements
+- Use composer
+- Use the transip restapi library
+- Use symfony
+- Use twig
+
+## Notes
+You can use Symfony's local webserver for easy development. See: https://symfony.com/doc/current/setup/symfony_server.html
+
+### Links
+- https://symfony.com/doc/current/setup.html
+- https://symfony.com/
+- https://twig.symfony.com/
+
+# Acceptance Criteria
+- [x] Provided a webpage to check for domains
+
