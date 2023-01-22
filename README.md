@@ -6,8 +6,9 @@ add een remote van deze git:
 
 https://github.com/Razzio91/domeinChecker.git
 
+Maak een database met de naam domainCheckResults in je command terminal (maak gebruik van mysql of mariadb).
 
-Gebruik checkDomain.sql en importeer die in je command terminal, met gebruik van mysql of mariadb.
+Gebruik checkDomain.sql en importeer die in je command terminal.
 
 Vervolgens zorg ervoor dat je de pad naar de directory als volgt navigeert: website/
 Eenmaal in dit pad start je de symfony server op: symonfy serve -d of symfony server:start
@@ -32,13 +33,19 @@ Step 1: Git&API_Connection & SymfonySetup & VPS
 
 ## Beroepstaak Software - Realiseren toDo tool:
 
-importeer de toDo.sql in je command terminal
+Maak een database met de naam toDo in je command terminal (maak gebruik van mysql of mariadb).
+
+importeer de doit.sql in je command terminal
 
 Voeg een item op de lijst toe:
 php todo.php add-item "submit hours" "2022-08-23 12:00:00"
 
 Lees een item(s) op de lijst:
 php todo.php display (key)
+
+Update een item status:
+
+php todo.php update-item (id) "setDeadlineOnADateBeforeToday"
 
 Verwijder item:
 php todo.php remove 1
