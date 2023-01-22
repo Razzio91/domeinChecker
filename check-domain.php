@@ -10,7 +10,7 @@ $api = new TransipAPI(
     $privateKey,
     false,
     '',
-    'http://api.fe.avahidnia.dev.transip.us/v6'
+    // API key removed due to security reasons
 );
 $response = $api->test()->test();
 
