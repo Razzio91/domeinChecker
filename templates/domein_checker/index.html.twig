@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+{% block title %}
+    Hello DomeinCheckerController!
+{% endblock %}
+{% block body %}
+    {% form_theme form 'bootstrap_5_layout.html.twig' %}
+    <div class="container">
+        {{ form_start(form) }}
+        {% block main %}
+            {{ form_row(form.task) }}
+            <div class="row">
+                <div class="col-6">
+                    {{ form_row(form.search) }}
+                </div>
+                <div class="col-6">
+                    {{ form_row(form.history) }}
+                </div>
+            </div>
+        {% endblock %}
+        {{ form_end(form) }}
+    </div>
+    <div class="container text-center">
+        {% if results == true %}
+            <div class="w-100"></div>
+            <div class="row"><h1>Results</h1></div>
+            <div class="w-100"></div>
+            <div class="row justify-content-around">
+                <form class="col-4 col-sm-12">
+                    <table id="resultTable" class="table table-striped table-bordered border-primary table-hover">
+                        <tr class="row table-dark">
+                            <th class="col-4">Domain Name</th>
+                            <th class="col-4">Status</th>
+                            <th class="col-4">WhoIsLink</th>
+                        </tr>
+                        {% for domain in results %}
+                            {% if domain.status in unusedStatuses %}
+                                <tr class="row">
+                                    <td class="col-4"> {{ domain.domainName }}</td>
+                                    <td class="col-4"> {{ "not free" }}</td>
+                                    <td class="col-4"><a class="btn btn-success btn-sm"
+                                                         onclick="window.location='/who/is?domainName={{ domain.domainName }}';">{{ domain.domainName }}</a>
+                                    </td>
+                                </tr>
+                            {% else %}
+                                <tr class="row">
+                                    <td class="col-4">{{ domain.domainName }}</td>
+                                    <td class="col-4">{{ domain.status }}</td>
+                                    <td class="col-4"><a class="btn btn-success btn-sm"
+                                                         onclick="window.location='/who/is?domainName={{ domain.domainName }}';">{{ domain.domainName }}</a>
+                                    </td>
+                                </tr>
+                            {% endif %}
+                        {% endfor %}
+                    </table>
+                </form>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+
+

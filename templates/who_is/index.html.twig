@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello WhoIsController!{% endblock %}
+
+{% block body %}
+
+    {% if fetchedWhoIs == false %}
+        {{ whoIsQuery|nl2br }}
+    {% else %}
+        {{ fetchedWhoIs|nl2br }}
+    {% endif %}
+{% endblock %}
