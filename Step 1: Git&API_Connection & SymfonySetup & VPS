@@ -67,3 +67,24 @@ You can use Symfony's local webserver for easy development. See: https://symfony
 # Acceptance Criteria
 - [x] Provided a webpage to check for domains
 
+# Assignment domain-checker
+
+## Part III - Server
+
+Now let's configure a VPS through the control panel and deploy the code there.
+
+## Requirements
+- The previously written application is running on a VPS.
+- A newly ordered domain points to the checker on the VPS.
+
+### Technical requirements
+- Server runs the stable Debian release (bullseye)
+- Server is configured as a LAMP server. 
+- Only ports 22 (SSH) and 80 (HTTP) are allowed for incoming traffic
+
+
+# Acceptance Criteria
+- [x] Application runs on VPS
+- [x] Application can check for multiple domains
+
+
