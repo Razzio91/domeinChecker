@@ -1,0 +1,41 @@
+# Assignment domain-checker
+
+## Goal
+The main goals of this assignment are to;
+- learn how to interact with the TransIP rest-API
+- learn how to setup a basic symfony website
+- learn how to set up a basic LAMP server
+
+## Git
+Please create new repository called domain-checker on [gitlab.nl.team.blue](https://gitlab.nl.team.blue/projects/new#blank_project) 
+under your own namespace (avahidnia) to store your code.
+
+
+## Part I - API
+Create a shell script which uses api on your dev VM to check if domains are available for registration.
+
+Usage of the script would be something like;
+
+```
+php check-domain.php transip.nl transip.be
+
+transip.nl : not-available
+transip.be : not-available
+```
+
+### Requirements
+- Provide a script which can be used to check multiple domains.
+
+### Technical requirements
+- use composer to install the transip rest API library
+- uses the Transip REST API
+- supports multiple domains
+
+### Links
+- https://www.transip.nl/knowledgebase/
+- https://api.transip.nl/rest/docs.html
+- https://github.com/transip/transip-api-php
+- https://getcomposer.org/doc/
+
+# Acceptance Criteria
+- [x] Check for multiple domains in terminal
