@@ -1,92 +1,204 @@
-# databaseDomainChecker
+Assignment 2; databases
 
+Goals
+- refresh the sql basics
+- use mysql in combination with php to store, obtain and delete data
 
+# mariadb (mysql)
+
+Given you already have had some mysql courses these tutorials should provide enough info to strengthen your mysql skills.
 
 ## Getting started
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+https://www.mysqltutorial.org/getting-started-with-mysql/
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+Perform the sections on your local machine.
 
-## Add your files
+## Basics
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+https://www.mysqltutorial.org/mysql-basics/
+Perform the first 5 sections on your local machine
+
+## Queries
+
+### Query 1
+
+Write a query to list all employees of a given office, sorted by the officeCode and employeeNumber
+
+Result should look like:
+```
++------------+----------------+----------+-----------+-----------+-------+----------+
+| officeCode | employeeNumber | lastName | firstName | extension | email | jobTitle |
++------------+----------------+----------+-----------+-----------+-------+----------+
+|            |                |          |           |           |       |          |
++------------+----------------+----------+-----------+-----------+-------+----------+
+```
+### Query 2
+
+Write a query which lists all employees and the office(s) they work for. If a employee work for multiple offices it should be listed multiple times.
+
+Result should look like:
+```
++----------------+-----------+----------+-------+----------+------------+------+---------+
+| employeeNumber | firstName | lastName | email | jobTitle | officeCode | city | country |
++----------------+-----------+----------+-------+----------+------------+------+---------+
+|                |           |          |       |          |            |      |         |
++----------------+-----------+----------+-------+----------+------------+------+---------+
+```
+### Query 3
+
+Write a query showing the amount of employees per office
+
+Result should look like:
+```
++------------+-------------------+
+| officeCode | amountOfEmployees |
++------------+-------------------+
+|            |                   |
++------------+-------------------+
+```
+### Query 4
+
+Write a query to show the amount of orders per customer
+
+Result should look like:
+```
++----------------+----------------+
+| customerNumber | amountOfOrders |
++----------------+----------------+
+|                |                |
++----------------+----------------+
+```
+### Query 5
+
+Write a query which displays how many distinct customers ordered a product Code
+
+Result should look like:
+```
++----------------+--------------------------+
+| productCode    | amountOfCustomersOrdered |
++----------------+--------------------------+
+|                |                          |
++----------------+--------------------------+
+```
+### Query 6
+
+Write a query listing all customer who ordered a certain product including the amount of orders.
+
+Result should look like:
+```
++----------------+-------------+----------------+
+| customerNumber | productCode | amountOfOrders |
++----------------+-------------+----------------+
+|                |             |                |
++----------------+-------------+----------------+
+```
+### Query 7
+
+Write a query displaying the total amount (pricing) every customer ordered. and order it on the most total price ordered.
+
+Result should look like:
+```
++----------------+-------------------+
+| customerNumber | totalPriceOrdered |
++----------------+-------------------+
+|                |                   |
++----------------+-------------------+
+```
+### Query 8
+
+Write a query to find the employee who was responsible for the most orders (so amount of orders and not pricing)
+
+Result should look like:
+```
++----------------+----------------+
+| employeeNumber | amountOfOrders |
++----------------+----------------+
+|                |                |
++----------------+----------------+
+```
+
+### Query 9
+
+Write a query to list all employees and the amount of orders they sold (in terms of pricing) to determine the employee who made the most money.
+
+Result should look like:
+```
++----------------+----------------+
+| employeeNumber | totalPriceSold |
++----------------+----------------+
+|                |                |
++----------------+----------------+
+```
+### Query 10
+
+Write a query to find out how much money every office made from orders
+
+Result should look like:
+```
++------------+------+---------+----------------+
+| officeCode | city | country | totalPriceSold |
++------------+------+---------+----------------+
+|            |      |         |                |
++------------+------+---------+----------------+
+```
+
+
+# php/mysql to-do list
+
+Use php and mysql without external libraries and frameworks such as symfony to create a 
+command-line to-do tool on your local machine.
+
+## Requirements
+The tool should be able to;
+- add a to-do item with a deadline
+- remove a to-do item
+- mark an items as done
+- you can update the deadline of an item
+- display a list of to-dos (sorted by deadline) which are not marked as done yet
+
+While the project may be split into several files, the entry point of the script should always be the same.
+Eg;
+```
+php todo.php add-item "submit hours" "2022-08-23 12:00:00"
+php todo.php display
+
+1, 2022-08-23 12:00:00, submit hours
+
+php todo.php remove 1
+php todo.php display
+
 
 ```
-cd existing_repo
-git remote add origin https://gitlab.nl.team.blue/avahidnia/databasedomainchecker.git
-git branch -M main
-git push -uf origin main
-```
 
-## Integrate with your tools
+## References
+### Using PDO
+The following pages can be used a reference when writing the queries
+- connect to database
+    - https://www.php.net/manual/en/pdo.connections.php
+- query (insert/update/delete)
+    - https://www.php.net/manual/en/pdo.query.php
+    - https://www.php.net/manual/en/pdo.prepare.php
+    - https://www.php.net/manual/en/pdostatement.execute.php
+    - https://www.php.net/manual/en/pdostatement.fetchall.php
 
-- [ ] [Set up project integrations](https://gitlab.nl.team.blue/avahidnia/databasedomainchecker/-/settings/integrations)
+## PDO continued
 
-## Collaborate with your team
+Rewrite query 6 - 10 of the first part of the assignment into PDO statements. Provide separate scripts per query.
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+# Domain checker
+This part should be done on your existing VM with the domain checker.
 
-## Test and Deploy
+IF this was not already done please install mariadb (mysql).
 
-Use the built-in continuous integration in GitLab.
+## Design data-set
+Design a table to store domain checker results. Discuss the solution before continuing. 
+The table should at least hold the domain-name, check result and the time on which the check was done.
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+After is has been discussed the table should be added to your project.
 
-***
+## Add entries
+Use PDO to insert a row into the table on every domain check
 
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
-
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
-
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
-
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
-
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
-
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
-
-## License
-For open source projects, say how it is licensed.
-
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+## Overview
+Add a page you your checker (/history) which displays all stored domain-check results.
